@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             });
             //} catch (IOException e) {
             //    Log.e(TAG, "Error on PeripheralIO API", e);
-            }
+            //}
 
 
 
