@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "367306548822",
+    "firebase_url": "https://androidthingsrobot.firebaseio.com",
+    "project_id": "androidthingsrobot",
+    "storage_bucket": "androidthingsrobot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367306548822:android:7fabca8684222154",
+        "android_client_info": {
+          "package_name": "supercompany.robotcompanionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367306548822-me1g2aus033o3ppfnot84avf10befnm6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "supercompany.robotcompanionapp",
+            "certificate_hash": "ca430eb9b17cc0e2156b86d1c9dc9b9d5aef2972"
+          }
+        },
+        {
+          "client_id": "367306548822-h6qicuulju4n38snkp1mevsonpc9ica3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDehbWlWOzNcWLksr4Mq5OOD7AzpRTLZs"
+        },
+        {
+          "current_key": "AIzaSyBbI1ldyLSPe125d3L2Dyl1FlXe0G6IXJU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367306548822-h6qicuulju4n38snkp1mevsonpc9ica3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367306548822:android:cfe57d0ebd804276",
+        "android_client_info": {
+          "package_name": "supercompany.androidthingsrobot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367306548822-o1pq5l6akl25hrlrl7c75t9270p11ghr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "supercompany.androidthingsrobot",
+            "certificate_hash": "ca430eb9b17cc0e2156b86d1c9dc9b9d5aef2972"
+          }
+        },
+        {
+          "client_id": "367306548822-h6qicuulju4n38snkp1mevsonpc9ica3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDehbWlWOzNcWLksr4Mq5OOD7AzpRTLZs"
+        },
+        {
+          "current_key": "AIzaSyBbI1ldyLSPe125d3L2Dyl1FlXe0G6IXJU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367306548822-h6qicuulju4n38snkp1mevsonpc9ica3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
