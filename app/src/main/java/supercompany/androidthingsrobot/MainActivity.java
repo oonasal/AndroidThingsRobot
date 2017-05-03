@@ -1,22 +1,15 @@
 package supercompany.androidthingsrobot;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
-import com.google.android.things.pio.Gpio;
-import com.google.android.things.pio.PeripheralManagerService;
-import com.google.android.things.pio.UartDevice;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private DatabaseReference dbReference;
 
-    private Handler mHandler = new Handler();
+    /*private Handler mHandler = new Handler();
     private Gpio mButtonGpio;
     private Gpio mLedGpio;
     private static final String UART_DEVICE_NAME = "UART0"; // UART Device Name
     private UartDevice mDevice;
-    Button bton,bton2;
+    Button bton,bton2;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +34,15 @@ public class MainActivity extends AppCompatActivity {
         //bton2=(Button)findViewById(R.id.button3);
 
         // Attempt to access the UART device
-        try {
+        /*try {
             PeripheralManagerService manager = new PeripheralManagerService();
             mDevice = manager.openUartDevice(UART_DEVICE_NAME);
         } catch (IOException e) {
             Log.w(TAG, "Unable to access UART device", e);
-        }
+        }*/
 
         // Configure the UART port
-        try {
+        /*try {
             mDevice.setBaudrate(9600);
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
             mDevice.setStopBits(1);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
-        PeripheralManagerService service = new PeripheralManagerService();
+        //PeripheralManagerService service = new PeripheralManagerService();
         //needs configurations first
         //try {
             //String pinName = BoardDefaults.getGPIOForButton();
@@ -83,27 +76,27 @@ public class MainActivity extends AppCompatActivity {
             //mLedGpio.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
             //Log.i(TAG, "Start blinking LED GPIO pin");
 
-            bton.setOnClickListener(new View.OnClickListener() {
+            /*bton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    mHandler.post(mUART1Runnable);
+                    mHandler.post(mUART1Runnable);*/
                     /*try {
                         mLedGpio.setValue(!mLedGpio.getValue());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }*/
-                }
-            });
+                //}
+            /*});
 
             bton2.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    mHandler.post(mUART2Runnable);
+                    mHandler.post(mUART2Runnable);*/
                     /*try {
                         mLedGpio.setValue(!mLedGpio.getValue());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }*/
-                }
-            });
+                /*}
+            });*/
             //} catch (IOException e) {
             //    Log.e(TAG, "Error on PeripheralIO API", e);
             //}
@@ -148,14 +141,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }*/
 
-        if (mDevice != null) {
+        /*if (mDevice != null) {
             try {
                 mDevice.close();
                 mDevice = null;
             } catch (IOException e) {
                 Log.w(TAG, "Unable to close UART device", e);
             }
-        }
+        }*/
 
     }
 
@@ -179,12 +172,12 @@ public class MainActivity extends AppCompatActivity {
         }
     };*/
 
-    private Runnable mUART1Runnable = new Runnable() {
+   /* private Runnable mUART1Runnable = new Runnable() {
 
         @Override
-        public void run() {
+        public void run() {*/
             // Exit Runnable if the GPIO is already closed
-            if (mDevice == null) {
+            /*if (mDevice == null) {
                 return;
             }
             try {
@@ -192,9 +185,9 @@ public class MainActivity extends AppCompatActivity {
                 int count = mDevice.write(buffer, buffer.length);
 
                 Log.d(TAG, "Wrote " + count + " bytes to peripheral 1");
-                buffer = null;
+                buffer = null;*/
                 //mHandler.postDelayed(mUARTRunnable, 1000);
-            } catch (IOException e) {
+            /*} catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -203,9 +196,9 @@ public class MainActivity extends AppCompatActivity {
     private Runnable mUART2Runnable = new Runnable() {
 
         @Override
-        public void run() {
+        public void run() {*/
             // Exit Runnable if the GPIO is already closed
-            if (mDevice == null) {
+            /*if (mDevice == null) {
                 return;
             }
             try {
@@ -213,9 +206,9 @@ public class MainActivity extends AppCompatActivity {
                 int count = mDevice.write(buffer, buffer.length);
 
                 Log.d(TAG, "Wrote " + count + " bytes to peripheral 2");
-                buffer = null;
+                buffer = null;*/
                 //mHandler.postDelayed(mUARTRunnable, 1000);
-            } catch (IOException e) {
+            /*} catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -225,5 +218,5 @@ public class MainActivity extends AppCompatActivity {
         byte[] buffer = {1};
         int count = uart.write(buffer, buffer.length);
         Log.d(TAG, "Wrote " + count + " bytes to peripheral");
-    }
+    }*/
 }
