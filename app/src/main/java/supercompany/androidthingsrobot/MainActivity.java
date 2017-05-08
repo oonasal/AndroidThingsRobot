@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d(TAG, "oncreate called");
+
         //not in the layout atm
         //bton=(Button)findViewById(R.id.button2);
         //bton2=(Button)findViewById(R.id.button3);

@@ -71,20 +71,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void goForward(View view) {
         Log.d(TAG, "Forward!!");
-        movement = new Movement("Forward");
+        movement = new Movement("A");
         onMovement(movement.getDirection());
 
     }
 
     public void goBackward(View view) {
         Log.d(TAG, "Backing up!!");
-        movement = new Movement("Backward");
+        movement = new Movement("B");
         onMovement(movement.getDirection());
     }
 
     public void stopRobot(View v) {
         Log.d(TAG, "Stopping!");
-        movement = new Movement("Stop");
+        movement = new Movement("S");
         onMovement(movement.getDirection());
     }
 }
