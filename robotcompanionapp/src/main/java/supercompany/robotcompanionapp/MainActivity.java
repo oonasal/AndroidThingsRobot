@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goForward(View view) {
         Log.d(TAG, "Forward!!");
-        movement = new Movement("A");
+        movement = new Movement("a");
         onMovement(movement.getDirection());
 
     }
