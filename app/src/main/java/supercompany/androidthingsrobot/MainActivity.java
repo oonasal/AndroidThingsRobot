@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Attempt to access the UART device
         try {
             PeripheralManagerService manager = new PeripheralManagerService();
+
             mDevice = manager.openUartDevice(UART_DEVICE_NAME);
         } catch (IOException e) {
             Log.w(TAG, "Unable to access UART device", e);
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
 
-                        //dbReference.removeValue();
+                        dbReference.removeValue();
                     }
                 }
             }

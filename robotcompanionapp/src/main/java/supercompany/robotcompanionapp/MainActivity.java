@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void goBackward(View view) {
         Log.d(TAG, "Backing up!!");
-        movement = new Movement("B");
+        movement = new Movement("b");
         onMovement(movement.getDirection());
     }
 
     public void stopRobot(View v) {
         Log.d(TAG, "Stopping!");
-        movement = new Movement("S");
+        movement = new Movement("s");
         onMovement(movement.getDirection());
     }
 }
