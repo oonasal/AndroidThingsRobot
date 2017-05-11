@@ -2,5 +2,8 @@
     <string name="app_name">RobotCompanionApp</string>
     <string name="button">Forward</string>
     <string name="button2">Backward</string>
-    <string name="button3">Stop</string>
+    <string name="button3">Left</string>
+    <string name="button4">Right</string>
+    <string name="button5">Tea Bag</string>
+    <string name="textView">Hello!</string>
 </resources>

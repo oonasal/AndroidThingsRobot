@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private DatabaseReference dbReference;
 
+    private FirebaseDatabase mDatabase;
+
     private Handler mHandler = new Handler();
     //private Gpio mButtonGpio;
     //private Gpio mLedGpio;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.d(TAG, "oncreate called");
+
+        mDatabase = mDatabase.getInstance();
 
         //not in the layout atm
         //bton=(Button)findViewById(R.id.button2);
@@ -124,10 +128,20 @@ public class MainActivity extends AppCompatActivity {
                         String direction = hm.get("direction").toString();
                         if(direction.equals("a")) {
                             mHandler.post(mUART1Runnable);
+                            dbReference.removeValue();
+                        } else if(direction.equals("b")) {
+                            mHandler.post(mUART4Runnable);
+                            dbReference.removeValue();
+                        } else if(direction.equals("e")) {
+                            mHandler.post(mUART3Runnable);
+                            dbReference.removeValue();
                         }
 
 
-                        dbReference.removeValue();
+                        //send a message back to confirm
+                        Log.d(TAG, "Trying to confirm movement");
+                        confirmMovement(direction);
+
                     }
                 }
             }
@@ -138,6 +152,13 @@ public class MainActivity extends AppCompatActivity {
         };
         dbReference.addValueEventListener(directionListener);
 
+    }
+
+    public void confirmMovement(String direction) {
+        final DatabaseReference dbReference2 = mDatabase.getReference("directions").push();
+        String confirmation = "Direction: " + direction;
+        dbReference2.child("direction").setValue(confirmation);
+        Log.d(TAG, "Sending confirmation, sent value " + direction + " to database.");
     }
 
     @Override
@@ -196,6 +217,48 @@ public class MainActivity extends AppCompatActivity {
             }
             try {
                 byte[] buffer = {'a'};
+                int count = mDevice.write(buffer, buffer.length);
+
+                Log.d(TAG, "Wrote " + count + " bytes to peripheral 1");
+                buffer = null;
+                //mHandler.postDelayed(mUARTRunnable, 1000);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    private Runnable mUART3Runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            // Exit Runnable if the GPIO is already closed
+            if (mDevice == null) {
+                return;
+            }
+            try {
+                byte[] buffer = {'e'};
+                int count = mDevice.write(buffer, buffer.length);
+
+                Log.d(TAG, "Wrote " + count + " bytes to peripheral 1");
+                buffer = null;
+                //mHandler.postDelayed(mUARTRunnable, 1000);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    private Runnable mUART4Runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            // Exit Runnable if the GPIO is already closed
+            if (mDevice == null) {
+                return;
+            }
+            try {
+                byte[] buffer = {'b'};
                 int count = mDevice.write(buffer, buffer.length);
 
                 Log.d(TAG, "Wrote " + count + " bytes to peripheral 1");
